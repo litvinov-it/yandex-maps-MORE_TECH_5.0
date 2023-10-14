@@ -1,5 +1,4 @@
-import { Placemark, YMaps, Map, Polyline, Clusterer, ZoomControl } from 'react-yandex-maps'
-import markerUserSVG from '../../marker_user.svg'
+import { YMaps, Map, Polyline, Clusterer, ZoomControl, GeolocationControl } from 'react-yandex-maps'
 
 function YandexMap({zoom, route, latitude, longitude, children, userPosition}) {
 
@@ -20,6 +19,7 @@ function YandexMap({zoom, route, latitude, longitude, children, userPosition}) {
             >
                 <ZoomControl options={{ size: "small", position: {top: 190, right: 10}}} />
                 {userPosition}
+                <GeolocationControl options={{ size: "small", position: {top: 150, right: 10}}} />
                 
                 <Clusterer
                 options={{

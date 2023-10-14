@@ -30,119 +30,119 @@ const GetDepartments = async (city, lat, lon) => {
     });
     const result = await response.json();
 
-    const departmentsTest = [
-        {
-            "id": 29000098,
-            "shortName": "ДО «Обручевский» Филиала № 7701 Банка ВТБ (ПАО)",
-            "address": "г. Москва, Ленинский пр-т, д. 111, корп. 1",
-            "city": "Москва",
-            "special": {
-                "vipZone": 0,
-                "vipOffice": 1,
-                "ramp": 1,
-                "person": 1,
-                "juridical": 0,
-                "Prime": 0
-            },
-            "loc": {
-                "type": "Point",
-                "coordinates": [
-                    37.509352,
-                    55.661333
-                ]
-            },
-            "scheduleAllWeekFl": {
-                "mon": {
-                    "start": "09:00",
-                    "stop": "20:00"
-                },
-                "tue": {
-                    "start": "09:00",
-                    "stop": "20:00"
-                },
-                "wed": {
-                    "start": "09:00",
-                    "stop": "20:00"
-                },
-                "thu": {
-                    "start": "09:00",
-                    "stop": "20:00"
-                },
-                "fri": {
-                    "start": "09:00",
-                    "stop": "20:00"
-                },
-                "sat": {
-                    "start": "10:00",
-                    "stop": "17:00"
-                },
-                "sun": false
-            },
-            "scheduleAllWeekJurl": {
-                "mon": false,
-                "tue": false,
-                "wed": false,
-                "thu": false,
-                "fri": false,
-                "sat": false,
-                "sun": false
-            }
-        },
-        {
-            "id": 29000342,
-            "shortName": "ДО «Щука» Филиала № 7701 Банка ВТБ (ПАО)",
-            "address": "г. Москва, ул. Щукинская, д. 42",
-            "city": "Москва",
-            "special": {
-                "vipZone": 0,
-                "vipOffice": 0,
-                "ramp": 0,
-                "person": 1,
-                "juridical": 0,
-                "Prime": 0
-            },
-            "loc": {
-                "type": "Point",
-                "coordinates": [
-                    37.464571,
-                    55.809474
-                ]
-            },
-            "scheduleAllWeekFl": {
-                "mon": {
-                    "start": "10:00",
-                    "stop": "21:00"
-                },
-                "tue": {
-                    "start": "10:00",
-                    "stop": "21:00"
-                },
-                "wed": {
-                    "start": "10:00",
-                    "stop": "21:00"
-                },
-                "thu": {
-                    "start": "10:00",
-                    "stop": "21:00"
-                },
-                "fri": {
-                    "start": "10:00",
-                    "stop": "21:00"
-                },
-                "sat": false,
-                "sun": false
-            },
-            "scheduleAllWeekJurl": {
-                "mon": false,
-                "tue": false,
-                "wed": false,
-                "thu": false,
-                "fri": false,
-                "sat": false,
-                "sun": false
-            }
-        },
-    ]
+    // const departmentsTest = [
+    //     {
+    //         "id": 29000098,
+    //         "shortName": "ДО «Обручевский» Филиала № 7701 Банка ВТБ (ПАО)",
+    //         "address": "г. Москва, Ленинский пр-т, д. 111, корп. 1",
+    //         "city": "Москва",
+    //         "special": {
+    //             "vipZone": 0,
+    //             "vipOffice": 1,
+    //             "ramp": 1,
+    //             "person": 1,
+    //             "juridical": 0,
+    //             "Prime": 0
+    //         },
+    //         "loc": {
+    //             "type": "Point",
+    //             "coordinates": [
+    //                 37.509352,
+    //                 55.661333
+    //             ]
+    //         },
+    //         "scheduleAllWeekFl": {
+    //             "mon": {
+    //                 "start": "09:00",
+    //                 "stop": "20:00"
+    //             },
+    //             "tue": {
+    //                 "start": "09:00",
+    //                 "stop": "20:00"
+    //             },
+    //             "wed": {
+    //                 "start": "09:00",
+    //                 "stop": "20:00"
+    //             },
+    //             "thu": {
+    //                 "start": "09:00",
+    //                 "stop": "20:00"
+    //             },
+    //             "fri": {
+    //                 "start": "09:00",
+    //                 "stop": "20:00"
+    //             },
+    //             "sat": {
+    //                 "start": "10:00",
+    //                 "stop": "17:00"
+    //             },
+    //             "sun": false
+    //         },
+    //         "scheduleAllWeekJurl": {
+    //             "mon": false,
+    //             "tue": false,
+    //             "wed": false,
+    //             "thu": false,
+    //             "fri": false,
+    //             "sat": false,
+    //             "sun": false
+    //         }
+    //     },
+    //     {
+    //         "id": 29000342,
+    //         "shortName": "ДО «Щука» Филиала № 7701 Банка ВТБ (ПАО)",
+    //         "address": "г. Москва, ул. Щукинская, д. 42",
+    //         "city": "Москва",
+    //         "special": {
+    //             "vipZone": 0,
+    //             "vipOffice": 0,
+    //             "ramp": 0,
+    //             "person": 1,
+    //             "juridical": 0,
+    //             "Prime": 0
+    //         },
+    //         "loc": {
+    //             "type": "Point",
+    //             "coordinates": [
+    //                 37.464571,
+    //                 55.809474
+    //             ]
+    //         },
+    //         "scheduleAllWeekFl": {
+    //             "mon": {
+    //                 "start": "10:00",
+    //                 "stop": "21:00"
+    //             },
+    //             "tue": {
+    //                 "start": "10:00",
+    //                 "stop": "21:00"
+    //             },
+    //             "wed": {
+    //                 "start": "10:00",
+    //                 "stop": "21:00"
+    //             },
+    //             "thu": {
+    //                 "start": "10:00",
+    //                 "stop": "21:00"
+    //             },
+    //             "fri": {
+    //                 "start": "10:00",
+    //                 "stop": "21:00"
+    //             },
+    //             "sat": false,
+    //             "sun": false
+    //         },
+    //         "scheduleAllWeekJurl": {
+    //             "mon": false,
+    //             "tue": false,
+    //             "wed": false,
+    //             "thu": false,
+    //             "fri": false,
+    //             "sat": false,
+    //             "sun": false
+    //         }
+    //     },
+    // ]
 
     return result
 }
