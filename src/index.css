@@ -1,13 +1,50 @@
+/* ВТБ шрифт \/ */
+@font-face {
+  font-family: 'VTB';
+  font-weight: 400;
+  src: url('./fonts/VTBGroupUI-Regular.woff2');
+}
+
+@font-face {
+  font-family: 'VTB';
+  font-weight: 500;
+  src: url('./fonts/VTBGroupUI-Medium.woff2');
+}
+
+@font-face {
+  font-family: 'VTB';
+  font-weight: 600;
+  src: url('./fonts/VTBGroupUI-SemiBold.woff2');
+}
+
+@font-face {
+  font-family: 'VTB';
+  font-weight: 800;
+  src: url('./fonts/VTBGroupUI-DemiBold.woff2');
+}
+/* ВТБ шрифт /\ */
+
+
+/* Переменные \/ */
+:root {
+  --text-color: rgb(43, 49, 59);
+  --accent: rgb(138, 150, 168);
+  --accent-light: rgb(201, 201, 201);
+  --main-color: rgb(13, 105, 242);
+}
+/* Переменные /\ */
+
+
+/*  */
 body {
+  font-family: "VTB";
+  font-weight: 400;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/*  */
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+[data-mantine-color-scheme=light] .m-cf365364 {
+  background-color: inherit
 }

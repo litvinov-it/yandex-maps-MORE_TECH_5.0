@@ -1,0 +1,41 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+
+.content {
+    padding-inline: 1rem;
+    overflow: auto;
+}
+
+.title {
+    color: var(--text-color);
+    margin: 0;
+}
+
+.form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.segmentedControlRoot {
+    min-width: 100%;
+}
+
+.control {
+    min-height:45px;
+}
+
+.label {
+    min-height: 45px;
+}

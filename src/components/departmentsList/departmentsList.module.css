@@ -1,0 +1,63 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2.1rem 1rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    overflow-y: scroll;
+    padding-inline: 1rem;
+}
+
+.input {
+    font-family: 'VTB';
+    font-weight: 400;
+}
+
+.inputWrapper {
+    width: 100%;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border-left: 1px solid rgb(13, 105, 242);
+    padding-left: .5rem;
+}
+
+.address {
+    margin: 0;
+    font-weight: 500;
+    line-height: 1;
+    font-size: 18px;
+    color: rgb(43, 49, 59);
+}
+
+.name {
+    margin: 0;
+    font-size: 14px;
+    color: rgb(98, 111, 132);
+    line-height: 1.5;
+}
+
+.iconWrapper {
+    min-width: 42px;
+    min-height: 42px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(206, 212, 218);
+}
+
+.icon {
+    width: 21px;
+    height: 21px;
+    fill: var(--accent);
+}

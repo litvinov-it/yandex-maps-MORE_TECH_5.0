@@ -1,0 +1,17 @@
+.weekList {
+    
+}
+
+.weekDay {
+    border-bottom: 1px solid var(--accent);
+}
+
+.active {
+    background-color: red;
+}
+
+.title {
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 0;
+}

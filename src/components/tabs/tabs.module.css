@@ -1,0 +1,30 @@
+.tabLabel {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.tab {
+    padding: 0;
+}
+
+.list {
+    flex-wrap: nowrap;
+}
+
+.list::before {
+    display: none;
+}
+
+.subtitle {
+    display: flex;
+    align-items: center;
+    gap: .40rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.shedule {
+    margin-left: 1px;
+    width: 24px;
+    height: 24px;
+}

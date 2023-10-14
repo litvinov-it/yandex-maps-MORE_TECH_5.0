@@ -1,0 +1,15 @@
+.header {
+    padding: 3rem 1rem;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 70px;
+}
+
+.title {
+    color: var(--text-color);
+    font-size: 20px;
+    margin: 0;
+}

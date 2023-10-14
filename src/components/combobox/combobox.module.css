@@ -1,0 +1,30 @@
+.icon {
+    width: 25px;
+    height: 25px;
+    fill: var(--text-color);
+}
+
+.optionText {
+    font-size: 18px;
+}
+
+.option {
+    border-radius: inherit;
+    padding-block: .75rem;
+    border-bottom: 1px solid var(--accent-light);
+    color: var(--text-color);
+}
+
+.option:first-child {
+    border-bottom: 1px solid var(--accent-light);
+}
+
+.option:last-child {
+    border-bottom: inherit;
+}
+
+.option, .input div div {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}

@@ -3,12 +3,39 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mantine/carousel": "^7.1.2",
+    "@mantine/code-highlight": "^7.1.2",
+    "@mantine/core": "^7.1.2",
+    "@mantine/dates": "^7.1.2",
+    "@mantine/dropzone": "^7.1.2",
+    "@mantine/form": "^7.1.2",
+    "@mantine/hooks": "^7.1.2",
+    "@mantine/modals": "^7.1.2",
+    "@mantine/notifications": "^7.1.2",
+    "@mantine/nprogress": "^7.1.2",
+    "@mantine/spotlight": "^7.1.2",
+    "@mantine/tiptap": "^7.1.2",
+    "@material-ui/core": "^4.12.4",
+    "@mui/icons-material": "^5.14.12",
+    "@mui/lab": "^5.0.0-alpha.147",
+    "@mui/material": "^5.14.12",
+    "@tabler/icons-react": "^2.39.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@tiptap/extension-link": "^2.1.11",
+    "@tiptap/react": "^2.1.11",
+    "@tiptap/starter-kit": "^2.1.11",
+    "dayjs": "^1.11.10",
+    "embla-carousel-react": "^8.0.0-rc14",
+    "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-modal-sheet": "^2.2.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.0.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,5 +61,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "postcss": "^8.4.31",
+    "postcss-preset-mantine": "^1.8.0",
+    "postcss-simple-vars": "^7.0.1"
   }
 }
