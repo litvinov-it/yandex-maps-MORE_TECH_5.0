@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.03b39d56.css",
-    "main.js": "/static/js/main.45b5ce72.js",
+    "main.js": "/static/js/main.0bb5ab00.js",
     "static/js/787.261e7c73.chunk.js": "/static/js/787.261e7c73.chunk.js",
     "static/media/VTBGroupUI-SemiBold.woff2": "/static/media/VTBGroupUI-SemiBold.5fe1513a1385a6661caa.woff2",
     "static/media/VTBGroupUI-DemiBold.woff2": "/static/media/VTBGroupUI-DemiBold.97a2ce79811bdeb2ab7f.woff2",
@@ -13,11 +13,11 @@
     "static/media/marker_min.svg": "/static/media/marker_min.cf4b40ac988f6451001e42ae59548472.svg",
     "static/media/marker_user.svg": "/static/media/marker_user.2f6c8b3faed6c1a34ba368a87c1e3f29.svg",
     "main.03b39d56.css.map": "/static/css/main.03b39d56.css.map",
-    "main.45b5ce72.js.map": "/static/js/main.45b5ce72.js.map",
+    "main.0bb5ab00.js.map": "/static/js/main.0bb5ab00.js.map",
     "787.261e7c73.chunk.js.map": "/static/js/787.261e7c73.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.03b39d56.css",
-    "static/js/main.45b5ce72.js"
+    "static/js/main.0bb5ab00.js"
   ]
 }
