@@ -1,5 +1,6 @@
 import GetHourMinutes from "./getHourMinutes";
 
+// Получает город по координатам
 const GetCityByPosition = async (position) => {
     const response = await fetch(`https://geocode-maps.yandex.ru/1.x/?apikey=3c5c7df6-cd58-4459-a5d7-f551e1489928&geocode=${position['longitude']},${position['latitude']}&skip=0&results=1&kind=locality&format=json`, {
         method: 'GET',
@@ -16,10 +17,11 @@ const GetCityByPosition = async (position) => {
     }
 }
 
+// Получает список филиалов 
 const GetDepartments = async (city, lat, lon) => {
     const current_time = GetHourMinutes();
 
-    const response = await fetch(`localhost:8000/api/departments/city`, {
+    const response = await fetch(`/api/departments/city`, {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json'
