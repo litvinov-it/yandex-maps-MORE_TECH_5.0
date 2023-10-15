@@ -16,13 +16,3 @@
     border-radius: 16px;
     background-color: rgb(228, 228, 228);
 }
-
-.nav {
-    background-color: red;
-}
-
-@media (min-width >= 765px) {
-    .nav {
-        display: none;
-    }   
-}

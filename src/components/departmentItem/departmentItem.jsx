@@ -10,7 +10,6 @@ import SheduleSVG from '../svg/shedule';
 
 function DepartmentItem({states, createRoute}) {
     const department = states.OpenDepartment
-    const [lockBtn, setLockBtn] = useState('')
 
     const timeWait = {
         1: 'до 15 минут',
@@ -35,7 +34,7 @@ function DepartmentItem({states, createRoute}) {
                 <h2 className={classes.title}>{department.shortName}</h2>
 
                 {/* to List btn */}
-                <CloseButton onClick={() => {states.setWhatIsOpen('list'); states.setRoute([])}}>
+                <CloseButton onClick={() => {states.setWhatIsOpen('list'); states.setRoute([]); states.setLockBtn('')}}>
                     <VisuallyHidden>Close modal</VisuallyHidden>
                 </CloseButton>
 
@@ -52,17 +51,17 @@ function DepartmentItem({states, createRoute}) {
                 <div className={classes.btns}>
 
                     {/* Walk */}
-                    <div className={`${classes.btn} ${lockBtn === 'walk' ? classes.btnBlock : ''}`} onClick={() => {
-                        if (lockBtn == 'walk') {
+                    <div className={`${classes.btn} ${states.lockBtn === 'walk' ? classes.btnBlock : ''}`} onClick={() => {
+                        if (states.lockBtn == 'walk') {
                             return ''
                         } else {
                             states.setZoomMap(16)
-                            setLockBtn('walk')
+                            states.setLockBtn('walk')
                             createRoute('walking', [department['loc']['coordinates'][1], department['loc']['coordinates'][0]], [states.latitude, states.longitude])
                         }
                     }}>
-                        <WalkSVG className={`${classes.icon} ${lockBtn === 'walk' ? classes.contentBlock : ''}`} />
-                        <div className={`${classes.iconDescWrapper} ${lockBtn === 'walk' ? classes.contentBlock : ''}`}>
+                        <WalkSVG className={`${classes.icon} ${states.lockBtn === 'walk' ? classes.contentBlock : ''}`} />
+                        <div className={`${classes.iconDescWrapper} ${states.lockBtn === 'walk' ? classes.contentBlock : ''}`}>
                             <p className={classes.iconDesc}>Пеший</p>
                             <p className={classes.iconDesc}>маршрут</p>
                         </div>
@@ -70,17 +69,17 @@ function DepartmentItem({states, createRoute}) {
 
                     {/* Car */}
                     <div className={classes.btnWrapper}>
-                        <div className={`${classes.btn} ${lockBtn === 'driving' ? classes.btnBlock : ''}`} onClick={() => {
-                            if (lockBtn == 'driving') {
+                        <div className={`${classes.btn} ${states.lockBtn === 'driving' ? classes.btnBlock : ''}`} onClick={() => {
+                            if (states.lockBtn == 'driving') {
                                 return ''
                             } else {
                                 states.setZoomMap(16)
-                                setLockBtn('driving')
+                                states.setLockBtn('driving')
                                 createRoute('driving', [department['loc']['coordinates'][1], department['loc']['coordinates'][0]], [states.latitude, states.longitude])
                             }
                         }}>
-                            <CarSVG className={`${classes.icon} ${lockBtn === 'driving' ? classes.contentBlock : ''}`} />
-                            <div className={`${classes.iconDescWrapper} ${lockBtn === 'driving' ? classes.contentBlock : ''}`}>
+                            <CarSVG className={`${classes.icon} ${states.lockBtn === 'driving' ? classes.contentBlock : ''}`} />
+                            <div className={`${classes.iconDescWrapper} ${states.lockBtn === 'driving' ? classes.contentBlock : ''}`}>
                                 <p className={`${classes.iconDesc} ${classes.carDesc}`}>Автомобильный</p>
                                 <p className={classes.iconDesc}>маршрут</p>
                             </div>

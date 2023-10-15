@@ -9,14 +9,15 @@ const usePosition = () => {
         // Здесь мы могли бы сохранить весь объект position, но для
         // ясности давайте явно перечислим, какие свойства нас интересуют.
         setPosition({latitude, longitude});
-      };
+    };
     
     const onError = (error) => {
         setError(error.message);
     };
-
+    
     useEffect(() => {
         const geo = navigator.geolocation;
+        console.log(geo.watchPosition())
 
         if (!geo) {
             setError('Геолокация не поддерживается браузером');
