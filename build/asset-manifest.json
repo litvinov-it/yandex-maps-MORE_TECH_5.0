@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a2ee2a27.css",
-    "main.js": "/static/js/main.fb070570.js",
+    "main.css": "/static/css/main.86af7e21.css",
+    "main.js": "/static/js/main.3423164c.js",
     "static/js/787.261e7c73.chunk.js": "/static/js/787.261e7c73.chunk.js",
     "static/media/VTBGroupUI-SemiBold.woff2": "/static/media/VTBGroupUI-SemiBold.5fe1513a1385a6661caa.woff2",
     "static/media/VTBGroupUI-DemiBold.woff2": "/static/media/VTBGroupUI-DemiBold.97a2ce79811bdeb2ab7f.woff2",
@@ -14,12 +14,12 @@
     "static/media/current_load_4.svg": "/static/media/current_load_4.fafd0e6a9ec5b06b8a5d.svg",
     "static/media/current_load_5.svg": "/static/media/current_load_5.e7d81f18118dd21cba7c.svg",
     "static/media/marker_user.svg": "/static/media/marker_user.2f6c8b3faed6c1a34ba368a87c1e3f29.svg",
-    "main.a2ee2a27.css.map": "/static/css/main.a2ee2a27.css.map",
-    "main.fb070570.js.map": "/static/js/main.fb070570.js.map",
+    "main.86af7e21.css.map": "/static/css/main.86af7e21.css.map",
+    "main.3423164c.js.map": "/static/js/main.3423164c.js.map",
     "787.261e7c73.chunk.js.map": "/static/js/787.261e7c73.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a2ee2a27.css",
-    "static/js/main.fb070570.js"
+    "static/css/main.86af7e21.css",
+    "static/js/main.3423164c.js"
   ]
 }

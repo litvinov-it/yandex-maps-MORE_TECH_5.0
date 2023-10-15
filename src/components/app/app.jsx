@@ -13,15 +13,16 @@ function App() {
 
   const loadDepartments = async () => {
     // const city = await GetCityByPosition({latitude: states.latitude, longitude: states.longitude}).then(data => data)
-    const city = 'Москва' //! DEV MODE
+    const city = 'Новосибирск' //! DEV MODE
     const departments = await GetDepartments(city, states.latitude, states.longitude).then(data => data)
     states.setActualDepartments(departments)
   }
   
   //? Состояния всего приложения
   // const { latitude, longitude, error } = usePosition(); //? Определяет местоположение пользователя
-  const latitude = 55.74835087535802 //! DEV MODE
-  const longitude = 37.625566772460935 //! DEV MODE
+
+  const latitude = 55.027640197150824 //! DEV MODE
+  const longitude = 82.9164817883284 //! DEV MODE
   const [isOpenModal, setIsOpenModal] = useState(true)
   const [whatIsOpen, setWhatIsOpen] = useState('list')
   const [OpenDepartment, setOpenDepartment] = useState(-1)
@@ -59,7 +60,7 @@ function App() {
 
   // Submit form \/
   async function submitFilters(values) {
-    const city = 'Москва'
+    const city = 'Новосибирск'
     const latitude = states.latitude
     const longitude = states.longitude
     const openNow = values['openNow']

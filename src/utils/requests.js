@@ -1,6 +1,8 @@
 import getDayOfWeek from "./getDayOfWeek";
 import GetHourMinutes from "./getHourMinutes";
 import departments from './departments'
+import getFilters from "./getFilters";
+import getHour from "./getHour";
 
 // Получает город по координатам
 const GetCityByPosition = async (position) => {
@@ -151,16 +153,16 @@ const GetDepartments = async (city, lat, lon) => {
         },
     ]
 
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
+    function getHoureMinutesTime(max) {
+        return Math.floor(getHour() * max);
       }
 
     const current_load_var = [1, 2, 3, 4, 5]
 
-    let getByCity = departments.filter(depart => depart['city'] == 'Москва')
+    let getByCity = departments.filter(depart => depart['city'] == 'Новосибирск')
     getByCity = getByCity.map( depart => {
-        depart['current_load'] = current_load_var[getRandomInt(5)]
-        depart['radius_dist'] = (Math.random() * 10) + 1
+        depart['current_load'] = current_load_var[getHoureMinutesTime(5)]
+        depart['radius_dist'] = (getHour() * 10) + 1
         return depart
     } )
 
@@ -184,7 +186,7 @@ const GetDepartmentsFilters = async (opened_now, client, service, city, latitude
     // const result = await response.json();
     // return result
 
-    const departmentsFilter = states.actualDepartments.filter(depart => Math.random() < 0.22)
+    const departmentsFilter = states.actualDepartments.filter(depart => getFilters())
 
     return departmentsFilter
 
