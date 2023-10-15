@@ -75,17 +75,19 @@
 .calendar {
     display: flex;
     align-items: center;
+    fill: var(--accent);
 }
 
 .sheduleAc {
+    color: var(--accent);
     display: flex;
     align-items: center;
-    gap: .35rem;
-    font-weight: 600;
+    gap: .75rem;
+    font-weight: 400;
     margin: 0;
     margin-bottom: 3rem;
     border-radius: 16px;
-    border: 1px solid var(--accent);
+    border: 1px solid var(--accent-light);
     margin-inline: .9rem;
     padding: 1rem;
 }
@@ -162,4 +164,38 @@
     width: 24px;
     height: 24px;
     fill: var(--accent);
+}
+
+.waiting {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    line-height: 1.2;
+}
+
+.dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.one {
+    background-color: #30FF38;
+}
+
+.two {
+    background-color: #D4E700;
+}
+
+.three {
+    background-color: #FFA030;
+}
+
+.four {
+    background-color: FF6544;
+}
+
+.five {
+    background-color: #FF4E4E;
 }

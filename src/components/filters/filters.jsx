@@ -4,7 +4,6 @@ import MyCombobox from '../combobox/combobox'
 
 import { CloseButton, VisuallyHidden, Switch, Button, SegmentedControl } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { GeocoderCityRequest } from '../../utils/requests';
 
 function Filters({states, submitFilters}) {
 
@@ -12,8 +11,8 @@ function Filters({states, submitFilters}) {
     const form = useForm({
         initialValues: {
             openNow: true,
-            client: 'natural_person',
-            service: 'G',
+            client: 'person',
+            service: 'A',
         },
     });
     
@@ -25,7 +24,7 @@ function Filters({states, submitFilters}) {
 
         return (
             // Выводим список услуг
-            <SegmentedControl orientation="vertical" size="md" radius="md"
+            <SegmentedControl orientation="vertical" size="md"
             // color="blue"
             classNames={{
                 label: classes.label,
@@ -49,7 +48,7 @@ function Filters({states, submitFilters}) {
         <>
             <div className={classes.header}>
                 <h2 className={classes.title}>Найти отделения</h2>
-                <CloseButton onClick={() => states.setWhatIsOpen('list')}>
+                <CloseButton onClick={() => {states.setWhatIsOpen('list'); states.loadDepartments();}}>
                     <VisuallyHidden>Close modal</VisuallyHidden>
                 </CloseButton>
             </div>

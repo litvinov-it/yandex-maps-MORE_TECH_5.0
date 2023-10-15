@@ -16,7 +16,7 @@
 }
 
 .indicator {
-    border: 1px solid #a0a0a0;
+    border-block: 1px solid var(--accent);
 }
 
 .form {
@@ -33,7 +33,9 @@
 }
 
 .segmentedControlRoot {
+    border-radius: 6px;
     min-width: 100%;
+    border: 1px solid var(--accent-light);
 }
 
 .control {

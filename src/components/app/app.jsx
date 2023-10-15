@@ -1,15 +1,22 @@
 import classes from './app.module.css'
 import { useEffect, useState } from 'react';
-
 import { Placemark } from 'react-yandex-maps'
 import YandexMap from '../map/map';
 import Ballon from '../ballon/ballon';
 import Navigation from '../navigation/navigation';
 import usePosition from '../../utils/usePosition';
 import markerUserSVG from '../../marker_user.svg'
-import { CreateRouteRequest, GetDepartments, GetCityByPosition } from '../../utils/requests';
+import Header from '../header/header';
+import { CreateRouteRequest, GetDepartments, GetDepartmentsFilters } from '../../utils/requests';
 
 function App() {
+
+  const loadDepartments = async () => {
+    // const city = await GetCityByPosition({latitude: states.latitude, longitude: states.longitude}).then(data => data)
+    const city = 'Москва' //! DEV MODE
+    const departments = await GetDepartments(city, states.latitude, states.longitude).then(data => data)
+    states.setActualDepartments(departments)
+  }
   
   //? Состояния всего приложения
   // const { latitude, longitude, error } = usePosition(); //? Определяет местоположение пользователя
@@ -30,6 +37,7 @@ function App() {
     latitude, longitude,
     time, setTime,
     createRoute,
+    loadDepartments,
     route, setRoute,
     zoomMap, setZoomMap,
     centerMap, setCenterMap,
@@ -41,29 +49,29 @@ function App() {
     actualDepartments, setActualDepartments,
   }
   //?
-
+  
   //? Первичная подгрузка филиалов
   useEffect(() => {
-    const loadDepartments = async () => {
-      const city = await GetCityByPosition({latitude: states.latitude, longitude: states.longitude}).then(data => data)
-      // const city = 'Москва' //! DEV MODE
-      const departments = await GetDepartments(city, states.latitude, states.longitude).then(data => data)
-      states.setActualDepartments(departments)
-    }
     loadDepartments()
   }, [])
   //?
   
 
   // Submit form \/
-  function submitFilters(values) {
-    //? Request
-    console.log(values)
+  async function submitFilters(values) {
+    const city = 'Москва'
+    const latitude = states.latitude
+    const longitude = states.longitude
+    const openNow = values['openNow']
+    const client = values['client']
+    const service = values['service']
+
+    const departments = await GetDepartmentsFilters(openNow, client, service, city, latitude, longitude, states)
+    states.setActualDepartments(departments)
+    states.setWhatIsOpen('list')
   }
   // Submit form /\
 
-  
-  // const nskApart = [11, 15, 23, 24, 42, 44, 70, 72,  74, 77, 84, 86, 89, 96] //! Dev mode
   const error = '' //! Dev mode
 
   // Create route \/
@@ -76,13 +84,9 @@ function App() {
   }
   // Create route /\
   
-  const marker =  <Placemark  
-                    // options={{
-                    //   iconLayout: 'islands#dotIcon',
-                    // }} 
+  const marker =  <Placemark 
                     options={{
                       iconLayout: 'default#image',
-                      // Своё изображение иконки метки.
                       iconImageHref: markerUserSVG,
                       iconImageSize: [80, 80],
                       iconImageOffset: [-38, -38]
@@ -92,22 +96,26 @@ function App() {
   
   return (
     <main className={classes.main}>
-      {error ? error : (
-        <YandexMap
-        zoom={states.zoomMap}
-        route={states.route}
-        latitude={states.latitude}
-        longitude={states.longitude}
-        userPosition={marker}
-        >
-          {states.actualDepartments ?
-            states.actualDepartments.map(department => {
-              return <Ballon department={department} states={states} key={department['id']} />
-            }): ''}
-        </YandexMap>
-        )}
 
-        <Navigation submitFilters={submitFilters} createRoute={createRoute} states={states} />
+      <Header />
+
+      {error ? error : (
+      <YandexMap
+      zoom={states.zoomMap}
+      route={states.route}
+      latitude={states.latitude}
+      longitude={states.longitude}
+      userPosition={marker}
+      >
+        {states.actualDepartments ?
+          states.actualDepartments.map(department => {
+            return <Ballon department={department} states={states} key={department['id']} currentLoad={department['current_load']} />
+          }): ''}
+      </YandexMap>
+      )}
+
+      <Navigation submitFilters={submitFilters} createRoute={createRoute} states={states} />
+      
     </main>
   );
 }

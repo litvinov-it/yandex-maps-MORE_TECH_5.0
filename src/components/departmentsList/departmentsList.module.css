@@ -49,6 +49,7 @@
 .department {
     display: flex;
     gap: 1.5rem;
+    /* align-items: center; */
 }
 
 .currentLoad {
@@ -57,7 +58,13 @@
 }
 
 .radiusDist {
-    text-align: center;
+    background-color: #f6f6f6;
+    display: inline-block;
+    padding: 0.25rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: .25rem;
     line-height: 1;
     color: var(--text-color);
 }

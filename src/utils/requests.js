@@ -1,4 +1,6 @@
+import getDayOfWeek from "./getDayOfWeek";
 import GetHourMinutes from "./getHourMinutes";
+import departments from './departments'
 
 // Получает город по координатам
 const GetCityByPosition = async (position) => {
@@ -21,135 +23,171 @@ const GetCityByPosition = async (position) => {
 const GetDepartments = async (city, lat, lon) => {
     const current_time = GetHourMinutes();
 
-    const response = await fetch(`http://localhost/api/departments/city`, {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        body: JSON.stringify( {current_time, city, lon, lat} )
-    });
-    const result = await response.json();
-    return result
+    // const response = await fetch(`http://localhost/api/departments/city`, {
+    //     method: 'POST',
+    //     headers: {
+    //     'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify( {current_time, city, lon, lat} )
+    // });
+    // const result = await response.json();
+    // return result
 
-    // const departmentsTest = [
-    //     {
-    //         "id": 29000098,
-    //         "current_load": 2,
-    //         "radius_dist": 8.93447298,
-    //         "shortName": "ДО «Обручевский» Филиала № 7701 Банка ВТБ (ПАО)",
-    //         "address": "г. Москва, Ленинский пр-т, д. 111, корп. 1",
-    //         "city": "Москва",
-    //         "special": {
-    //             "vipZone": 0,
-    //             "vipOffice": 1,
-    //             "ramp": 1,
-    //             "person": 1,
-    //             "juridical": 0,
-    //             "Prime": 0
-    //         },
-    //         "loc": {
-    //             "type": "Point",
-    //             "coordinates": [
-    //                 37.509352,
-    //                 55.661333
-    //             ]
-    //         },
-    //         "scheduleAllWeekFl": {
-    //             "mon": {
-    //                 "start": "09:00",
-    //                 "stop": "20:00"
-    //             },
-    //             "tue": {
-    //                 "start": "09:00",
-    //                 "stop": "20:00"
-    //             },
-    //             "wed": {
-    //                 "start": "09:00",
-    //                 "stop": "20:00"
-    //             },
-    //             "thu": {
-    //                 "start": "09:00",
-    //                 "stop": "20:00"
-    //             },
-    //             "fri": {
-    //                 "start": "09:00",
-    //                 "stop": "20:00"
-    //             },
-    //             "sat": {
-    //                 "start": "10:00",
-    //                 "stop": "17:00"
-    //             },
-    //             "sun": false
-    //         },
-    //         "scheduleAllWeekJurl": {
-    //             "mon": false,
-    //             "tue": false,
-    //             "wed": false,
-    //             "thu": false,
-    //             "fri": false,
-    //             "sat": false,
-    //             "sun": false
-    //         }
-    //     },
-    //     {
-    //         "id": 29000342,
-    //         "current_load": 5,
-    //         "radius_dist": 6.967352262628115,
-    //         "shortName": "ДО «Щука» Филиала № 7701 Банка ВТБ (ПАО)",
-    //         "address": "г. Москва, ул. Щукинская, д. 42",
-    //         "city": "Москва",
-    //         "special": {
-    //             "vipZone": 0,
-    //             "vipOffice": 0,
-    //             "ramp": 0,
-    //             "person": 1,
-    //             "juridical": 0,
-    //             "Prime": 0
-    //         },
-    //         "loc": {
-    //             "type": "Point",
-    //             "coordinates": [
-    //                 37.464571,
-    //                 55.809474
-    //             ]
-    //         },
-    //         "scheduleAllWeekFl": {
-    //             "mon": {
-    //                 "start": "10:00",
-    //                 "stop": "21:00"
-    //             },
-    //             "tue": {
-    //                 "start": "10:00",
-    //                 "stop": "21:00"
-    //             },
-    //             "wed": {
-    //                 "start": "10:00",
-    //                 "stop": "21:00"
-    //             },
-    //             "thu": {
-    //                 "start": "10:00",
-    //                 "stop": "21:00"
-    //             },
-    //             "fri": {
-    //                 "start": "10:00",
-    //                 "stop": "21:00"
-    //             },
-    //             "sat": false,
-    //             "sun": false
-    //         },
-    //         "scheduleAllWeekJurl": {
-    //             "mon": false,
-    //             "tue": false,
-    //             "wed": false,
-    //             "thu": false,
-    //             "fri": false,
-    //             "sat": false,
-    //             "sun": false
-    //         }
-    //     },
-    // ]
-    // return departmentsTest
+    const departmentsTest = [
+        {
+            "id": 29000098,
+            "current_load": 2,
+            "radius_dist": 0.93447298,
+            "shortName": "ДО «Обручевский» Филиала № 7701 Банка ВТБ (ПАО)",
+            "address": "г. Москва, Ленинский пр-т, д. 111, корп. 1",
+            "city": "Москва",
+            "special": {
+                "vipZone": 0,
+                "vipOffice": 1,
+                "ramp": 1,
+                "person": 1,
+                "juridical": 0,
+                "Prime": 0
+            },
+            "loc": {
+                "type": "Point",
+                "coordinates": [
+                    37.509352,
+                    55.661333
+                ]
+            },
+            "scheduleAllWeekFl": {
+                "mon": {
+                    "start": "09:00",
+                    "stop": "20:00"
+                },
+                "tue": {
+                    "start": "09:00",
+                    "stop": "20:00"
+                },
+                "wed": {
+                    "start": "09:00",
+                    "stop": "20:00"
+                },
+                "thu": {
+                    "start": "09:00",
+                    "stop": "20:00"
+                },
+                "fri": {
+                    "start": "09:00",
+                    "stop": "20:00"
+                },
+                "sat": {
+                    "start": "10:00",
+                    "stop": "17:00"
+                },
+                "sun": false
+            },
+            "scheduleAllWeekJurl": {
+                "mon": false,
+                "tue": false,
+                "wed": false,
+                "thu": false,
+                "fri": false,
+                "sat": false,
+                "sun": false
+            }
+        },
+        {
+            "id": 29000342,
+            "current_load": 5,
+            "radius_dist": 6.967352262628115,
+            "shortName": "ДО «Щука» Филиала № 7701 Банка ВТБ (ПАО)",
+            "address": "г. Москва, ул. Щукинская, д. 42",
+            "city": "Москва",
+            "special": {
+                "vipZone": 0,
+                "vipOffice": 0,
+                "ramp": 0,
+                "person": 1,
+                "juridical": 0,
+                "Prime": 0
+            },
+            "loc": {
+                "type": "Point",
+                "coordinates": [
+                    37.464571,
+                    55.809474
+                ]
+            },
+            "scheduleAllWeekFl": {
+                "mon": {
+                    "start": "10:00",
+                    "stop": "21:00"
+                },
+                "tue": {
+                    "start": "10:00",
+                    "stop": "21:00"
+                },
+                "wed": {
+                    "start": "10:00",
+                    "stop": "21:00"
+                },
+                "thu": {
+                    "start": "10:00",
+                    "stop": "21:00"
+                },
+                "fri": {
+                    "start": "10:00",
+                    "stop": "21:00"
+                },
+                "sat": false,
+                "sun": false
+            },
+            "scheduleAllWeekJurl": {
+                "mon": false,
+                "tue": false,
+                "wed": false,
+                "thu": false,
+                "fri": false,
+                "sat": false,
+                "sun": false
+            }
+        },
+    ]
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+    const current_load_var = [1, 2, 3, 4, 5]
+
+    let getByCity = departments.filter(depart => depart['city'] == 'Москва')
+    getByCity = getByCity.map( depart => {
+        depart['current_load'] = current_load_var[getRandomInt(5)]
+        depart['radius_dist'] = (Math.random() * 10) + 1
+        return depart
+    } )
+
+    return getByCity
     
+}
+
+const GetDepartmentsFilters = async (opened_now, client, service, city, latitude, longitude, states) => {
+    const current_time = GetHourMinutes();
+    const day_of_week = getDayOfWeek()
+
+    // console.log({opened_now, client, service, current_time, latitude, longitude, city, day_of_week})
+
+    // const response = await fetch(`http://localhost/api/departments/city`, {
+    //     method: 'POST',
+    //     headers: {
+    //     'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify( {current_time, city, lon, lat} )
+    // });
+    // const result = await response.json();
+    // return result
+
+    const departmentsFilter = states.actualDepartments.filter(depart => Math.random() < 0.22)
+
+    return departmentsFilter
+
 }
 
 const CreateRouteRequest = async (type, from, to) => {
@@ -175,4 +213,4 @@ const CreateRouteRequest = async (type, from, to) => {
     
 }
 
-export { GetCityByPosition, CreateRouteRequest, GetDepartments }
+export { GetCityByPosition, CreateRouteRequest, GetDepartments, GetDepartmentsFilters }

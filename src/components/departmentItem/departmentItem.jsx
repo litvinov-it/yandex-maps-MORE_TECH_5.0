@@ -12,6 +12,21 @@ function DepartmentItem({states, createRoute}) {
     const department = states.OpenDepartment
     const [lockBtn, setLockBtn] = useState('')
 
+    const timeWait = {
+        1: 'до 15 минут',
+        2: 'до 30 минут',
+        3: 'до 45 минут',
+        4: 'до часа',
+        5: 'более часа',
+    }
+    const timeWaitClass = {
+        1: classes.one,
+        2: classes.two,
+        3: classes.three,
+        4: classes.four,
+        5: classes.five,
+    }
+
     return (
         <>
             <div className={classes.header}>
@@ -28,8 +43,10 @@ function DepartmentItem({states, createRoute}) {
 
             <div className={classes.content}>
 
+                <p className={classes.waiting}><span className={`${classes.dot} ${timeWaitClass[department['current_load']]}`}></span>Сейчас время ожидания {timeWait[department['current_load']]}</p>
                 {/* Address */}
                 <p className={classes.address}>{department.address}</p>
+
 
                 {/* Btns */}
                 <div className={classes.btns}>
@@ -72,7 +89,7 @@ function DepartmentItem({states, createRoute}) {
 
                 </div>
 
-                <p onClick={() => states.setWhatIsOpen('shedule')} className={classes.sheduleAc}><CalendarSVG className={classes.calendar}/>Запланировать посещение</p>
+                <p className={classes.sheduleAc}><CalendarSVG className={classes.calendar}/>Спланировать посещение</p>
                 
           <p className={classes.subtitle}><SheduleSVG className={classes.shedule}/> Расписание: </p>
                 

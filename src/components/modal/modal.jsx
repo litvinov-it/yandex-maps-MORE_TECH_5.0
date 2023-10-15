@@ -1,7 +1,7 @@
 function Modal({content, states}) {
     return (
         <Sheet isOpen={states.isOpenModal} onClose={() => states.setIsOpenModal(false)}
-        snapPoints={[600, 400, 130, 0]}
+        snapPoints={[667, 400, 130, 0]}
         initialSnap={2}
         onSnap={snapIndex => snapIndex == 3 ? states.setIsOpenModal(true) : 0}
         >
