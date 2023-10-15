@@ -21,7 +21,7 @@ const GetCityByPosition = async (position) => {
 const GetDepartments = async (city, lat, lon) => {
     const current_time = GetHourMinutes();
 
-    const response = await fetch(`http://localhost:8000/api/departments/city`, {
+    const response = await fetch(`http://localhost/api/departments/city`, {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json'
@@ -29,10 +29,13 @@ const GetDepartments = async (city, lat, lon) => {
         body: JSON.stringify( {current_time, city, lon, lat} )
     });
     const result = await response.json();
+    return result
 
     // const departmentsTest = [
     //     {
     //         "id": 29000098,
+    //         "current_load": 2,
+    //         "radius_dist": 8.93447298,
     //         "shortName": "ДО «Обручевский» Филиала № 7701 Банка ВТБ (ПАО)",
     //         "address": "г. Москва, Ленинский пр-т, д. 111, корп. 1",
     //         "city": "Москва",
@@ -90,6 +93,8 @@ const GetDepartments = async (city, lat, lon) => {
     //     },
     //     {
     //         "id": 29000342,
+    //         "current_load": 5,
+    //         "radius_dist": 6.967352262628115,
     //         "shortName": "ДО «Щука» Филиала № 7701 Банка ВТБ (ПАО)",
     //         "address": "г. Москва, ул. Щукинская, д. 42",
     //         "city": "Москва",
@@ -143,8 +148,8 @@ const GetDepartments = async (city, lat, lon) => {
     //         }
     //     },
     // ]
-
-    return result
+    // return departmentsTest
+    
 }
 
 const CreateRouteRequest = async (type, from, to) => {

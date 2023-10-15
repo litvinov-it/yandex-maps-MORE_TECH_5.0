@@ -14,17 +14,3 @@
 .list::before {
     display: none;
 }
-
-.subtitle {
-    display: flex;
-    align-items: center;
-    gap: .40rem;
-    font-weight: 600;
-    margin: 0;
-}
-
-.shedule {
-    margin-left: 1px;
-    width: 24px;
-    height: 24px;
-}

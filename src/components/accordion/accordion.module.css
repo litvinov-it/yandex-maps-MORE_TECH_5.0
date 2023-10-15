@@ -1,0 +1,19 @@
+.panel {
+}
+
+.control {
+    padding: .5rem;
+    margin-top: -.5rem;
+}
+
+.content {
+    padding: .5rem;
+}
+
+.root {
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    padding: 0;
+}

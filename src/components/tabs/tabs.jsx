@@ -13,7 +13,7 @@ function MyTabs({person, juridical, IsPerson, IsJuridical}) {
         <Tabs.List  grow justify="center"
         
         >
-          <p className={classes.subtitle}><SheduleSVG className={classes.shedule}/> Расписание: </p>
+          {/* <p className={classes.subtitle}><SheduleSVG className={classes.shedule}/> Расписание: </p> */}
           <Tabs.Tab value="first" disabled={!IsPerson}>Физ.лица</Tabs.Tab>
           <Tabs.Tab value="second" color="blue" disabled={!IsJuridical}>Юр.лица</Tabs.Tab>
         </Tabs.List>

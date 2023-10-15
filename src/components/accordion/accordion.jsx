@@ -1,4 +1,5 @@
 import { Accordion } from '@mantine/core';
+import classes from './accordion.module.css'
 
 function MyAccordion({data}) {
 
@@ -10,7 +11,7 @@ function MyAccordion({data}) {
       ));
     
       return (
-        <Accordion variant="filled">
+        <Accordion classNames={{label: classes.label, root: classes.root, panel: classes.panel, control: classes.control, content: classes.content}} variant="filled">
           {items}
         </Accordion>
       );

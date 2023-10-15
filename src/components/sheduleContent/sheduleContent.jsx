@@ -7,7 +7,7 @@ function SheduleContent({states}) {
             <div className={classes.header}>
 
                 {/* Title */}
-                <h2 className={classes.title}>Запись в банкомат</h2>
+                <h2 className={classes.title}>Запланировать посещение</h2>
 
                 {/* to List btn */}
                 <CloseButton onClick={() => states.setWhatIsOpen('department')}>

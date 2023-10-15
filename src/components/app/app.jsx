@@ -13,45 +13,32 @@ function App() {
   
   //? Состояния всего приложения
   // const { latitude, longitude, error } = usePosition(); //? Определяет местоположение пользователя
-  const [isOpenModal, setIsOpenModal] = useState(true);
+  const latitude = 55.74835087535802 //! DEV MODE
+  const longitude = 37.625566772460935 //! DEV MODE
+  const [isOpenModal, setIsOpenModal] = useState(true)
   const [whatIsOpen, setWhatIsOpen] = useState('list')
   const [OpenDepartment, setOpenDepartment] = useState(-1)
   const [route, setRoute] = useState([])
   const [time, setTime] = useState('')
   const [snapModal, setSnapModal] = useState(2)
   const [isSnapDepartmentOpen, setIsSnapDepartmentOpen] = useState(false)
-  const [zoomMap, setZoomMap] = useState(12)
+  const [zoomMap, setZoomMap] = useState(14)
   const [actualDepartments, setActualDepartments] = useState('')
+  const [centerMap, setCenterMap] = useState([latitude, longitude])
 
   const states = {
-    isOpenModal: isOpenModal,
-    setIsOpenModal: setIsOpenModal,
-
-    whatIsOpen: whatIsOpen,
-    setWhatIsOpen: setWhatIsOpen,
-    
-    OpenDepartment: OpenDepartment,
-    setOpenDepartment: setOpenDepartment,
-
-    time: time,
-    setTime: setTime,
-
-    snapModal: snapModal,
-    setSnapModal: setSnapModal,
-
-    isSnapDepartmentOpen: isSnapDepartmentOpen,
-    setIsSnapDepartmentOpen: setIsSnapDepartmentOpen,
-
-    latitude: 55.74835087535802,
-    longitude: 37.625566772460935,
-
-    createRoute: createRoute,
-
-    zoomMap: zoomMap,
-    setZoomMap: setZoomMap,
-
-    actualDepartments: actualDepartments,
-    setActualDepartments: setActualDepartments,
+    latitude, longitude,
+    time, setTime,
+    createRoute,
+    route, setRoute,
+    zoomMap, setZoomMap,
+    centerMap, setCenterMap,
+    isOpenModal, setIsOpenModal,
+    whatIsOpen, setWhatIsOpen,
+    OpenDepartment, setOpenDepartment,
+    snapModal, setSnapModal,
+    isSnapDepartmentOpen, setIsSnapDepartmentOpen,
+    actualDepartments, setActualDepartments,
   }
   //?
 

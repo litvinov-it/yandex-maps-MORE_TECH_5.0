@@ -16,13 +16,13 @@
 .btns {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .btn {
-    width: 140px;
+    width: 150px;
     height: 120px;
     border-radius: 16px;
     border: 2px solid var(--main-color);
@@ -83,8 +83,11 @@
     gap: .35rem;
     font-weight: 600;
     margin: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     border-radius: 16px;
+    border: 1px solid var(--accent);
+    margin-inline: .9rem;
+    padding: 1rem;
 }
 
 .subtitle {
@@ -98,7 +101,7 @@
 
 .address {
     color: var(--accent);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .item {
@@ -141,5 +144,22 @@
 
 .contentBlock {
     color: var(--accent);
+    fill: var(--accent);
+}
+
+.subtitle {
+    display: flex;
+    align-items: center;
+    gap: .40rem;
+    font-weight: 400;
+    margin: 0;
+    color: var(--accent);
+    margin-bottom: .5rem;
+}
+
+.shedule {
+    margin-left: 1px;
+    width: 24px;
+    height: 24px;
     fill: var(--accent);
 }

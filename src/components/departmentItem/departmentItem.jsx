@@ -6,6 +6,7 @@ import WeekShedule from '../weekShedule/weekShedule';
 import MyTabs from '../tabs/tabs';
 import CalendarSVG from '../svg/calendar';
 import { useState } from 'react';
+import SheduleSVG from '../svg/shedule';
 
 function DepartmentItem({states, createRoute}) {
     const department = states.OpenDepartment
@@ -19,7 +20,7 @@ function DepartmentItem({states, createRoute}) {
                 <h2 className={classes.title}>{department.shortName}</h2>
 
                 {/* to List btn */}
-                <CloseButton onClick={() => states.setWhatIsOpen('list')}>
+                <CloseButton onClick={() => {states.setWhatIsOpen('list'); states.setRoute([])}}>
                     <VisuallyHidden>Close modal</VisuallyHidden>
                 </CloseButton>
 
@@ -56,8 +57,8 @@ function DepartmentItem({states, createRoute}) {
                             if (lockBtn == 'driving') {
                                 return ''
                             } else {
-                                setLockBtn('driving')
                                 states.setZoomMap(16)
+                                setLockBtn('driving')
                                 createRoute('driving', [department['loc']['coordinates'][1], department['loc']['coordinates'][0]], [states.latitude, states.longitude])
                             }
                         }}>
@@ -71,8 +72,9 @@ function DepartmentItem({states, createRoute}) {
 
                 </div>
 
-                <p onClick={() => states.setWhatIsOpen('shedule')} className={classes.sheduleAc}><CalendarSVG className={classes.calendar}/> Записаться в банкомат</p>
+                <p onClick={() => states.setWhatIsOpen('shedule')} className={classes.sheduleAc}><CalendarSVG className={classes.calendar}/>Запланировать посещение</p>
                 
+          <p className={classes.subtitle}><SheduleSVG className={classes.shedule}/> Расписание: </p>
                 
                 <MyTabs 
                 person={

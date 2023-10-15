@@ -4,10 +4,16 @@
 
 .weekDay {
     border-bottom: 1px solid var(--accent);
+    padding-block: .5rem;
 }
 
-.active {
-    background-color: red;
+.weekDay:last-child {
+    border-bottom: inherit;
+    padding-bottom: inherit;
+}
+
+.weekDay:first-child {
+    padding-top: 0;
 }
 
 .title {

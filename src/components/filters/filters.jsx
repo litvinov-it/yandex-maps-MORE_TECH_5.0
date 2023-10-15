@@ -26,11 +26,12 @@ function Filters({states, submitFilters}) {
         return (
             // Выводим список услуг
             <SegmentedControl orientation="vertical" size="md" radius="md"
-            color="blue"
+            // color="blue"
             classNames={{
                 label: classes.label,
                 root: classes.segmentedControlRoot,
                 control: classes.control,
+                indicator: classes.indicator
             }}
             {...form.getInputProps('service')}
             data={
