@@ -4,24 +4,17 @@ import { Placemark } from 'react-yandex-maps'
 import YandexMap from '../map/map';
 import Ballon from '../ballon/ballon';
 import Navigation from '../navigation/navigation';
-import usePosition from '../../utils/usePosition';
 import markerUserSVG from '../../marker_user.svg'
 import Header from '../header/header';
-import { CreateRouteRequest, GetDepartments, GetDepartmentsFilters } from '../../utils/requests';
+import { CreateRouteRequest, GetDepartments } from '../../utils/requests';
+
+import Sheet from 'react-modal-sheet';
 
 function App() {
-
-  const loadDepartments = async () => {
-    // const city = await GetCityByPosition({latitude: 55.74835087535802, longitude: 37.625566772460935}).then(data => data)
-    const city = 'Новосибирск' //! DEV MODE
-    const departments = await GetDepartments(city, 55.74835087535802, 37.625566772460935).then(data => data)
-    states.setActualDepartments(departments)
-  }
   
   //? Состояния всего приложения
-  // const { latitude, longitude, error } = usePosition(); //? Определяет местоположение пользователя
-  const latitude = 55.02807161634693 //! DEV MODE
-  const longitude = 82.91578441397978 //! DEV MODE
+  const latitude = 55.02807161634693
+  const longitude = 82.91578441397978
   const [isOpenModal, setIsOpenModal] = useState(true)
   const [whatIsOpen, setWhatIsOpen] = useState('list')
   const [OpenDepartment, setOpenDepartment] = useState(-1)
@@ -39,7 +32,6 @@ function App() {
     latitude, longitude,
     time, setTime,
     createRoute,
-    loadDepartments,
     route, setRoute,
     zoomMap, setZoomMap,
     centerMap, setCenterMap,
@@ -54,38 +46,18 @@ function App() {
   
   //? Первичная подгрузка филиалов
   useEffect(() => {
-    loadDepartments()
+    states.setActualDepartments( GetDepartments() )
   }, [])
   //?
-  
-
-  // Submit form \/
-  async function submitFilters(values) {
-    const city = 'Новосибирск'
-    const latitude = states.latitude
-    const longitude = states.longitude
-    const openNow = values['openNow']
-    const client = values['client']
-    const service = values['service']
-
-    const departments = await GetDepartmentsFilters(openNow, client, service, city, latitude, longitude, states)
-    states.setActualDepartments(departments)
-    states.setWhatIsOpen('list')
-  }
-  // Submit form /\
-
-  const error = '' //! Dev mode
 
   // Create route \/
-  function createRoute(type, coord) {
-
-    CreateRouteRequest(type, [states.latitude, states.longitude], coord)
-    .then(route => states.setRoute(route))
-
+  function createRoute(type, department) {
+    states.setRoute( CreateRouteRequest(type, department) )
     states.setIsOpenModal(false)
   }
   // Create route /\
   
+  // User marker
   const marker =  <Placemark 
                     options={{
                       iconLayout: 'default#image',
@@ -95,30 +67,51 @@ function App() {
                     }} 
                     geometry={[states.latitude, states.longitude]} 
                   />;
+
+                  function closeModal() {
+                    if (states.isSnapDepartmentOpen) {
+                      states.setSnapModal(0)
+                    } else {
+                      states.setSnapModal(2)
+                    }
+                    states.setIsOpenModal(true)
+                    states.setIsSnapDepartmentOpen(false)
+                 }
   
   return (
-    <main className={classes.main}>
+    <>
 
-      <Header />
+      <div className={classes.pc_Not} onClick={(e) => console.log(e.target.style.display = 'none')}>
+        <div>
+          <div className={classes.flex}>
+            <div>Извините, но этот проек был реализован только под мобильное разрешение.</div>
+            <div>Советую смотреть его в DevTools под "IPhoneSE".</div>
+          </div>
+          <div className={classes.mini}>Чтобы убрать это оповещение нажмите куда угодно</div>
+        </div>
+      </div>
+    
+      <main className={classes.main}>
 
-      {error ? error : (
-      <YandexMap
-      zoom={states.zoomMap}
-      route={states.route}
-      latitude={states.latitude}
-      longitude={states.longitude}
-      userPosition={marker}
-      >
-        {states.actualDepartments ?
-          states.actualDepartments.map(department => {
-            return <Ballon department={department} states={states} key={department['id']} currentLoad={department['current_load']} />
-          }): ''}
-      </YandexMap>
-      )}
+        <Header />
 
-      <Navigation submitFilters={submitFilters} createRoute={createRoute} states={states} />
-      
-    </main>
+        <YandexMap
+        zoom={states.zoomMap}
+        route={states.route}
+        latitude={states.latitude}
+        longitude={states.longitude}
+        userPosition={marker}
+        >
+          {states.actualDepartments ?
+            states.actualDepartments.map(department => {
+              return <Ballon department={department} states={states} key={department['id']} currentLoad={department['current_load']} />
+            }): ''}
+        </YandexMap>
+
+        <Navigation createRoute={createRoute} states={states} />
+      </main>
+
+    </>
   );
 }
 

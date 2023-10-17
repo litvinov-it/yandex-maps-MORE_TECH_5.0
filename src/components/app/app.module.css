@@ -1,3 +1,34 @@
 .main {
     height: 100vh;
 }
+
+.pc_Not {
+    position: absolute;
+    display: flex;
+        align-items: center;
+    justify-content: center;
+    inset: 0;
+    font-weight: 500;
+    background-color: rgb(255, 255, 255);
+    z-index: 999999999;
+}
+
+.flex {
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.mini {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: right;
+}
+
+@media (width <= 768px) {
+    .pc_Not {
+        display: none;
+    }
+}

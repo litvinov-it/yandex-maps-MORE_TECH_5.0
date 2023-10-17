@@ -23,7 +23,6 @@ function Navigation({states, createRoute, submitFilters}) {
      }
 
      function closeModal() {
-      // console.log(states.isSnapDepartmentOpen)
         if (states.isSnapDepartmentOpen) {
           states.setSnapModal(0)
         } else {

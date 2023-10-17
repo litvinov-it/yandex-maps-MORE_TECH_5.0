@@ -5,7 +5,7 @@ import MyCombobox from '../combobox/combobox'
 import { CloseButton, VisuallyHidden, Switch, Button, SegmentedControl } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
-function Filters({states, submitFilters}) {
+function Filters({states}) {
 
     // Инициализация формы и данных
     const form = useForm({
@@ -25,7 +25,6 @@ function Filters({states, submitFilters}) {
         return (
             // Выводим список услуг
             <SegmentedControl orientation="vertical" size="md"
-            // color="blue"
             classNames={{
                 label: classes.label,
                 root: classes.segmentedControlRoot,
@@ -48,13 +47,13 @@ function Filters({states, submitFilters}) {
         <>
             <div className={classes.header}>
                 <h2 className={classes.title}>Найти отделения</h2>
-                <CloseButton onClick={() => {states.setWhatIsOpen('list'); states.loadDepartments();}}>
+                <CloseButton onClick={() => states.setWhatIsOpen('list')}>
                     <VisuallyHidden>Close modal</VisuallyHidden>
                 </CloseButton>
             </div>
 
             <div className={classes.content}>
-                <form className={classes.form} onSubmit={form.onSubmit(values => {submitFilters(values) })}>
+                <form className={classes.form} onSubmit={form.onSubmit(values => console.log(values))}>
 
                     <Switch size="md"
                     defaultChecked

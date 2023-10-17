@@ -57,7 +57,7 @@ function DepartmentItem({states, createRoute}) {
                         } else {
                             states.setZoomMap(16)
                             states.setLockBtn('walk')
-                            createRoute('walking', [department['loc']['coordinates'][1], department['loc']['coordinates'][0]], [states.latitude, states.longitude])
+                            createRoute('walk', department)
                         }
                     }}>
                         <WalkSVG className={`${classes.icon} ${states.lockBtn === 'walk' ? classes.contentBlock : ''}`} />
@@ -75,7 +75,7 @@ function DepartmentItem({states, createRoute}) {
                             } else {
                                 states.setZoomMap(16)
                                 states.setLockBtn('driving')
-                                createRoute('driving', [department['loc']['coordinates'][1], department['loc']['coordinates'][0]], [states.latitude, states.longitude])
+                                createRoute('drive', department)
                             }
                         }}>
                             <CarSVG className={`${classes.icon} ${states.lockBtn === 'driving' ? classes.contentBlock : ''}`} />
